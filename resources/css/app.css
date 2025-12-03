@@ -1,0 +1,534 @@
+@import "tailwindcss";
+@import "tailwind-scrollbar-hide/v4";
+
+@layer base {
+    h1 {
+        @apply text-6xl md:text-7xl font-bold;
+    }
+    h2 {
+        @apply font-bold text-4xl md:text-6xl;
+    }
+    h3 {
+        @apply font-semibold text-3xl md:text-5xl;
+    }
+    h4 {
+        @apply font-semibold text-2xl md:text-4xl;
+    }
+    h5 {
+        @apply font-medium text-xl md:text-2xl;
+    }
+    h6 {
+        @apply text-base md:text-xl;
+    }
+    p {
+        @apply text-sm md:text-base;
+    }
+    a {
+        @apply text-sm md:text-base;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@layer utilities {
+    /* Shadow custom */
+    .shadow-theme {
+        @apply shadow-[0_4px_20px_rgba(0,0,0,0.08)];
+    }
+
+    .shadow-theme-dark {
+        @apply shadow-[0_1px_10px_rgba(251,251,235,0.08)];
+    }
+
+    .shadow-big {
+        @apply shadow-[0_0_30px_rgba(0,0,0,0.4)];
+    }
+
+    /* Warna tema */
+    .back-color-t {
+        background-color: #480505ed;
+    }
+    .back-color-f {
+        background-color: #480505;
+    }
+    .text-theme {
+        color: #27272a;
+    }
+    .text-big {
+        color: #82b935;
+    }
+    .text-shadow-dark {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+}
+
+GLOBAL
+    RESET
+    UNTUK
+    EDITOR
+    ================================
+    */
+    .editor-content
+    * {
+    line-height: 1.6rem;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* ================================
+   PARAGRAPH
+================================ */
+.editor-content p {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 1rem !important; /* ✅ jarak antar paragraf */
+    color: inherit !important;
+}
+.editor-override p {
+    font-weight: 400 !important;
+    font-size: 13px !important;
+}
+
+/* ================================
+   HEADINGS
+================================ */
+.editor-content h1,
+.editor-content h2,
+.editor-content h3,
+.editor-content h4,
+.editor-content h5,
+.editor-content h6 {
+    font-weight: 600 !important;
+    color: inherit !important;
+}
+
+/* H2 */
+.editor-content h2 {
+    font-size: 2.5rem !important;
+    margin-top: 1.2rem !important; /* ✅ beri jarak */
+    margin-bottom: 0.8rem !important;
+    font-weight: bold !important;
+    line-height: 3.2rem;
+}
+
+/* H3 */
+.editor-content h3 {
+    font-size: 1.8rem !important;
+    margin-top: 1rem !important; /* ✅ beri jarak */
+    margin-bottom: 0.6rem !important;
+    line-height: 2.8rem;
+    font-weight: bold !important;
+}
+
+/* ================================
+   LIST (ul / ol)
+================================ */
+.editor-content ul,
+.editor-content ol {
+    padding-left: 1.3rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.editor-content li {
+    margin: 0.3rem 0;
+}
+
+/* ================================
+   LINKS
+================================ */
+.editor-content a {
+    color: #2563eb !important;
+    text-decoration: underline;
+}
+
+/* ================================
+   TABLE
+================================ */
+.editor-content table {
+    /* border-collapse: collapse; */
+    width: 100%;
+    margin: 1.2rem 0;
+}
+
+.editor-content table td,
+.editor-content table th {
+    /* border: 1px solid #e5e7eb; */
+    padding: 8px;
+}
+
+.editor-content table th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+/* ================================
+   IMAGES
+================================ */
+.editor-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+/* ================================
+   BLOCKQUOTE
+================================ */
+/* .editor-content blockquote {
+    border-left: 4px solid #94a3b8;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #475569;
+}
+.editor-content table blockquote {
+    border-left: 4px solid #94a3b8;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #475569;
+} */
+
+.editor-content blockquote {
+    display: flex;
+    flex-direction: column; /* biar konten tetap vertikal */
+    position: relative;
+    font-style: italic;
+    font-weight: bold;
+    padding: 0.5rem !important;
+}
+
+/* tanda petik buka di awal teks */
+.editor-content blockquote::before {
+    content: "“"; /* spasi setelah tanda petik */
+    font-size: 2rem;
+    color: red;
+    display: block;
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
+}
+.editor-content blockquote::after {
+    content: "”";
+    font-size: 2rem;
+    color: red;
+    display: block; /* jadikan block/flex item */
+    align-self: flex-end; /* ini baru bekerja */
+}
+
+/* ================================
+   CODE BLOCK
+================================ */
+.editor-content pre {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.editor-content code {
+    font-family: Consolas, monospace;
+}
+
+/* ================================
+   HORIZONTAL LINE
+================================ */
+.editor-content hr {
+    border: none;
+    border-top: 1px solid #d4d4d4;
+    margin: 1.5rem 0;
+}
+
+.editor-content ul {
+    padding: 0 1.6rem;
+    color: auto;
+    list-style-type: disc !important;
+}
+
+.editor-content ol {
+    padding-left: 1.6rem;
+    list-style-type: decimal !important;
+}
+
+.editor-content ul li p em,
+ul li p small {
+    color: auto !important; /* ambil warna dari parent */
+}
+
+/* li di dalam ul/ol di editor-content */
+.editor-content ul li p,
+.editor-content ol li p {
+    color: auto;
+}
+
+* Hilangkan marker default */ .editor-content summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Gaya summary dan ikon panah */
+.editor-content summary {
+    cursor: pointer;
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    list-style: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-right: 1.6rem;
+}
+
+/* Ikon panah custom */
+.editor-content summary::before {
+    content: "\25BC"; /* ikon panah */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.3s ease; /* animasi putar */
+    color: #1c3d5a;
+}
+
+/* Putar panah saat details dibuka */
+.editor-content details[open] summary::before {
+    transform: translateY(-50%) rotate(180deg); /* putar ke kanan */
+}
+
+/* Style box details */
+.editor-content details {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0.7em 4%;
+    margin: 0.5em 1rem;
+    transition: all 0.5s ease;
+    background-color: #f8f9fa;
+}
+
+.editor-content details ul,
+.editor-content details ol {
+    margin: 0 !important;
+    color: auto;
+    list-style-type: disc !important;
+}
+
+.editor-content details p {
+    margin: 0.2em 0 !important;
+    padding: 0em 0.5em !important;
+}
+
+.editor-content details img {
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Animasi konten details (opsional) */
+.editor-content details > *:not(summary) {
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    overflow: hidden;
+}
+
+.editor-content details ul {
+    padding: 0 1.6rem;
+    color: auto;
+    list-style-type: disc !important;
+}
+
+.editor-content details ol {
+    padding-left: 1.6rem;
+    list-style-type: decimal !important;
+}
+
+.editor-content details ul li p em,
+ul li p small {
+    color: auto !important; /* ambil warna dari parent */
+}
+
+/* li di dalam ul/ol di editor-content */
+.editor-content details ul li p,
+.editor-content ol li p {
+    color: auto;
+}
+
+/* .editor-content div,
+.editor-content span,
+.editor-content p {
+    margin: 0 !important; 
+    padding: 0 !important; 
+    line-height: 2 !important; 
+    font-family: "Lato", serif !important;
+    text-align: justify;
+} */
+
+/* grid */
+.editor-content .grid-layout {
+    display: grid;
+    grid-template-columns: auto auto auto auto; /* pakai var dari inline style */
+    gap: 1rem; /* jarak antar kolom */
+}
+
+.editor-content .grid-layout-col {
+    /* opsional styling tiap kolom */
+    padding: 0.5rem;
+}
+
+.editor-content table ol {
+    padding-left: 1.6rem;
+    list-style-type: decimal !important;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .editor-content .grid-layout {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* select */
+select {
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    padding: 10px;
+    transition: 0.4s;
+    appearance: none; /* Hilangkan styling default browser */
+    color: #e2e8f0;
+}
+
+select:hover,
+select:focus {
+    background: #fff;
+}
+
+/* Icon panah */
+select::picker-icon {
+    color: #fff;
+    transition: 0.4s rotate;
+}
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+/* Option styling */
+option {
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    padding: 10px;
+}
+option:hover,
+option:focus {
+    background: white;
+}
+option:checked {
+    font-weight: normal;
+}
+
+/* slides images */
+/* bullets */
+.swiper-pagination {
+    justify-content: center !important;
+    padding-bottom: 2rem;
+    pointer-events: none; /* opsional, biar benar2 di tengah */
+    display: flex !important;
+}
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    pointer-events: auto;
+    background-color: #fff !important;
+}
+.swiper-pagination-bullet-active {
+    width: 15px !important;
+    height: 15px !important;
+    background-color: #fff !important;
+}
+@media (max-width: 768px) {
+    .swiper-pagination {
+        justify-content: center !important;
+        padding-bottom: 5rem;
+        pointer-events: none; /* opsional, biar benar2 di tengah */
+    }
+}
+
+/* Panah navigasi */
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important; /* warna panah */
+    width: 35px !important; /* lebar tombol */
+    height: 35px !important; /* tinggi tombol */
+    z-index: 9999;
+    background-color: white !important; /* background tombol */
+    border-radius: 50%; /* buat bundar */
+    display: flex; /* center panah */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* efek shadow halus */
+    transition: all 0.3s ease !important; /* animasi hover */
+    padding: 0.6rem !important;
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.1); /* zoom sedikit saat hover */
+    background-color: white !important; /* ganti warna background saat hover */
+    color: #fff !important; /* panah jadi putih */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 24px !important; /* ukuran panah lebih jelas */
+    font-weight: bold !important;
+}
+
+.perspective {
+    perspective: 1000px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-scroll {
+    animation: scroll 20s linear infinite;
+}
+
+/* maps leaflet*/
+.leaflet-tooltip {
+    font-weight: 500 !important; /* bold */
+    font-size: 16px !important; /* perbesar */
+    padding: 8px 12px !important;
+    background: #fff !important;
+    color: #59851d !important;
+    border-radius: 6px !important;
+}
+
+.leaflet-interactive:focus {
+    outline: none !important;
+}
+.leaflet-interactive {
+    pointer-events: auto !important; /* hover tetap jalan */
+}
+.leaflet-interactive {
+    cursor: default !important; /* ubah pointer jadi panah biasa */
+}
+
+@keyframes customPing {
+    75%,
+    100% {
+        transform: scale(1.6);
+        opacity: 0; /* ubah di sini untuk besar kecilnya efek */
+    }
+}
